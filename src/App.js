@@ -15,7 +15,7 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import './scss/style.css'
 
 import Layout from './components/Layout';
-import { Login } from './containers/Pages';
+import { Login } from './containers/Login';
 
 class App extends Component {
   render() {

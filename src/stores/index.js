@@ -1,10 +1,19 @@
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-import { userReducers } from '../containers/Users';
-import { companyReducers } from '../containers/Companies';
+import reducers from './reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['userState', 'companyState']
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const loggerMiddleware = store => (
   next => (
@@ -16,15 +25,13 @@ const loggerMiddleware = store => (
     }
   )
 );
-const rootReducer = combineReducers({
-  userState: userReducers,
-  companyState: companyReducers
-});
 
 const store = createStore(
-  rootReducer, 
+  persistedReducer, 
   {}, 
   composeEnhancers(applyMiddleware(thunk, loggerMiddleware))
 );
+
+persistStore(store);
 
 export default store;
