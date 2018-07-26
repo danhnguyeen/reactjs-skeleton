@@ -10,7 +10,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['userState', 'companyState']
+  whitelist: ['authState', 'userState', 'companyState']
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -32,6 +32,9 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, loggerMiddleware))
 );
 
-persistStore(store);
+const persistor = persistStore(store);
 
-export default store;
+export {
+  store,
+  persistor
+};
