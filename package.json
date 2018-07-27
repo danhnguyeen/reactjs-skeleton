@@ -1,10 +1,10 @@
 {
-  "name": "@coreui/coreui-free-react-admin-template",
-  "version": "2.0.6",
-  "description": "CoreUI React Open Source Bootstrap 4 Admin Template",
-  "author": "Łukasz Holeczek",
+  "name": "mylife-back-office",
+  "version": "1.0.0",
+  "description": "Mylife Back Office",
+  "author": "AmagumoLabs",
   "homepage": "https://coreui.io",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
+  "copyright": "Copyright 2018 AmagumoLabs",
   "license": "MIT",
   "private": true,
   "repository": {
@@ -31,6 +31,7 @@
     "reactstrap": "^6.1.0",
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",
+    "redux-persist-transform-encrypt": "^2.0.1",
     "redux-thunk": "^2.3.0",
     "simple-line-icons": "^2.4.1"
   },
