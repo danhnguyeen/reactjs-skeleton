@@ -2,12 +2,19 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import createEncryptor from 'redux-persist-transform-encrypt'
 
 import reducers from './reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
+const encryptor = createEncryptor({
+  secretKey: 'my-super-secret-key',
+  onError: function(error) {
+    // Handle the error.
+  }
+})
 const persistConfig = {
+  transforms: [encryptor],
   key: 'root',
   storage,
   whitelist: ['authState', 'userState', 'companyState']

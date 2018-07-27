@@ -20,7 +20,6 @@ import { Login, Logout } from './containers/Auth';
 class App extends Component {
   async componentDidMount() {
     try {
-      console.log(this.props.expiresIn)
       await this.props.onCheckAuth(this.props.token, this.props.expiresIn);
     } catch (err) {
       this.props.history.replace("/login");

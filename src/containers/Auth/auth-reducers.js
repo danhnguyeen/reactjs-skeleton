@@ -11,7 +11,7 @@ const login = (state, action) => updatedObject(state, { token: action.token, use
 
 const logout = (state, action) => updatedObject(state, { token: false, userData: null });
 
-const checkToken = (state, action) => updatedObject(state, { token: action.token, userData: action.userData });
+const checkToken = (state, action) => updatedObject(state, { token: action.token, expiresIn: action.expiresIn });
 
 const reducer = (state = initalState, action) => {
   switch (action.type) {
