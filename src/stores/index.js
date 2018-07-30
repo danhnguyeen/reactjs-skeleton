@@ -9,7 +9,7 @@ import reducers from './reducers';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const encryptor = createEncryptor({
   secretKey: 'my-super-secret-key'
-})
+});
 const persistConfig = {
   transforms: [encryptor],
   key: 'root',

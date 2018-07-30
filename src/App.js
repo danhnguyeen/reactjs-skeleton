@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter, Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
-import * as actions from './containers/Auth/auth-actions';
+import * as actions from './containers/auth/auth-actions';
 import Layout from './components/Layout';
-import { Login, Logout } from './containers/Auth';
+import { Login, Logout } from './containers/auth';
 
 import './App.css';
 // CoreUI Icons Set
