@@ -8,16 +8,13 @@ import reducers from './reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const encryptor = createEncryptor({
-  secretKey: 'my-super-secret-key',
-  onError: function(error) {
-    // Handle the error.
-  }
+  secretKey: 'my-super-secret-key'
 })
 const persistConfig = {
   transforms: [encryptor],
   key: 'root',
   storage,
-  whitelist: ['authState', 'userState', 'companyState']
+  whitelist: ['authState', 'restaurantState', 'userState', 'companyState']
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

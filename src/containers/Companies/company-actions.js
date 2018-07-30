@@ -1,7 +1,7 @@
 import * as actionTypes from './company-action-types';
 import axios from '../../config/axios';
 
-export const fetchCompanySuccess = (companies) => {
+const fetchCompanySuccess = (companies) => {
   return {
     type: actionTypes.FETCH_COMPANY,
     companies: companies

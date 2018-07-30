@@ -1,7 +1,7 @@
 import * as actionTypes from './auth-action-types';
 import axios from '../../config/axios';
 
-export const loginSuccess = (token, user, expiresIn) => {
+const loginSuccess = (token, user, expiresIn) => {
   return {
     type: actionTypes.AUTH_LOGIN,
     token,
@@ -22,7 +22,7 @@ export const login = (email, password) => {
   };
 };
 
-export const logoutSuccess = () => {
+const logoutSuccess = () => {
   return {
     type: actionTypes.AUTH_LOGOUT
   };
@@ -40,7 +40,7 @@ export const logout = () => {
   };
 };
 
-export const checkAuthSuccess = (token, expiresIn) => {
+const checkAuthSuccess = (token, expiresIn) => {
   return {
     type: actionTypes.AUTH_CHECK_TOKEN,
     token,

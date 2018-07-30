@@ -1,7 +1,7 @@
 import * as actionTypes from './user-action-types';
 import axios from '../../config/axios';
 
-export const fetchUserSuccess = (users) => {
+const fetchUserSuccess = (users) => {
   return {
     type: actionTypes.FETCH_USER,
     users: users

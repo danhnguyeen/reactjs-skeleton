@@ -12,7 +12,7 @@ class Login extends Component {
   loginHandler = async () => {
     try {
       await this.props.onLogin(this.state.email, this.state.password);
-      this.props.history.replace('/home');
+      this.props.history.replace('/users');
     } catch (err) {
       console.log(err)
     }

@@ -4,7 +4,7 @@ import { DropdownItem, DropdownMenu, DropdownToggle, Nav } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import {  AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
-import logo from '../../assets/img/brand/logo-black.png'
+import logo from '../../assets/img/brand/logo-black.png';
 
 const propTypes = {
   children: PropTypes.node,
@@ -15,7 +15,7 @@ const defaultProps = {};
 class Header extends Component {
   render() {
     // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
+    // const { children, ...attributes } = this.props;
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
