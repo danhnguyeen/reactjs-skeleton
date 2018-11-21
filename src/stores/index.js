@@ -1,10 +1,23 @@
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import createEncryptor from 'redux-persist-transform-encrypt'
 
-import { userReducers } from '../containers/Users';
-import { companyReducers } from '../containers/Companies';
+import reducers from './reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const encryptor = createEncryptor({
+  secretKey: 'my-super-secret-key'
+});
+const persistConfig = {
+  transforms: [encryptor],
+  key: 'root',
+  storage,
+  whitelist: ['authState', 'restaurantState', 'userState', 'companyState']
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const loggerMiddleware = store => (
   next => (
@@ -16,15 +29,16 @@ const loggerMiddleware = store => (
     }
   )
 );
-const rootReducer = combineReducers({
-  userState: userReducers,
-  companyState: companyReducers
-});
 
 const store = createStore(
-  rootReducer, 
+  persistedReducer, 
   {}, 
   composeEnhancers(applyMiddleware(thunk, loggerMiddleware))
 );
 
-export default store;
+const persistor = persistStore(store);
+
+export {
+  store,
+  persistor
+};

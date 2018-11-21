@@ -1,9 +1,9 @@
 export default {
   items: [
     {
-      name: 'Home',
-      url: '/home',
-      icon: 'icon-home',
+      name: 'Restaurants',
+      url: '/restaurants',
+      icon: 'fa fa-coffee',
     }, {
       name: 'Users',
       url: '/users',

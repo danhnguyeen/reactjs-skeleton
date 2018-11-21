@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table, Button } from 'reactstrap'
 
-import * as actions from './company-actions';
+import * as actions from './restaurant-actions';
 
-class Companies extends Component {
+class Restaurants extends Component {
   componentDidMount() {
-    this.props.onFetchCompany();
+    this.props.onFetchRestaurant();
   }
   render() {
     return (
       <div className="animated fadeIn">
         <div className="card">
           <div className="card-header">
-            <i className="icon-map"></i> Company List
+            <i className="icon-map"></i> Restaurant List
           </div>
           <div className="card-body">
           <Table responsive striped bordered hover>
@@ -27,12 +27,12 @@ class Companies extends Component {
             </thead>
             <tbody>
               {
-                this.props.companies.map(company => {
+                this.props.restaurants.map(restaurant => {
                   return (
-                    <tr key={company.id}>
-                      <td>{company.name}</td>
-                      <td>{company.type}</td>
-                      <td>{company.description}</td>
+                    <tr key={restaurant.id}>
+                      <td>{restaurant.name}</td>
+                      <td>{restaurant.type}</td>
+                      <td>{restaurant.description}</td>
                       <td align="center">
                         <Button color="dark" size="xs">Edit</Button>
                         <Button className="ml-1" color="danger" size="xs">Delete</Button>
@@ -52,14 +52,14 @@ class Companies extends Component {
 
 const mapStateToProps = state => {
   return {
-    companies: state.companyState.companies
+    restaurants: state.restaurantState.restaurants
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchCompany: () => dispatch(actions.fetchCompany())
+    onFetchRestaurant: () => dispatch(actions.fetchRestaurant())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Companies);
+export default connect(mapStateToProps, mapDispatchToProps)(Restaurants);

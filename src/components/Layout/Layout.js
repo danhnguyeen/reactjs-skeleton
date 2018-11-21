@@ -35,14 +35,15 @@ class Layout extends Component {
           <main className="main">
             <Container fluid>
               <Switch>
-                {routes.map((route, idx) => {
+                {
+                  routes.map((route, idx) => {
                     return route.component ? (<Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
                         <route.component {...props} />
                       )} />)
                       : (null);
-                  },
-                )}
-                <Redirect from="/" to="/home" />
+                  })
+                }
+                <Redirect from="/" to="/users" />
               </Switch>
             </Container>
           </main>

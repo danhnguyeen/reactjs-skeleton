@@ -1,4 +1,4 @@
-# MyLife Back Office
+# ReactJS Skeleton
 
 ## Intro 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
@@ -9,7 +9,7 @@ Dependencies are handled by **npm**.
 
 ## Directories
 ```
-MyLife-Back-Office#v1.0.0
+#v1.0.0
 ├── public/      (static files)
 │   ├── assets/  (assets)
 │   └── index.html (html temlpate)

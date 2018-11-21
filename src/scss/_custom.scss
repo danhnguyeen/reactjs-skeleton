@@ -7,6 +7,15 @@
     margin-bottom: 15px;
   }
 }
+.navbar-nav {
+  .nav-item {
+    .dropdown-menu {
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
 .btn-xs,
 .btn-group-xs {
   padding: 0.15rem 0.5rem;
